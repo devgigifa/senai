@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rev</title>
+</head>
+<style>
+body{
+    color: rgb(0, 0, 0);
+    background: rgba(138, 170, 138, 0.966);
+}
+
+
+input{
+    border-radius: 60px;
+    padding: 5px;
+}
+/* margin-bottom: 15px; é o espaço entre os inputs, espaçamento do texto */
+/* border-radius: 4px; borda */
+/* padding: 5px; tamanho da caixa */
+
+
+h1{
+    text-align: center;
+}
+
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* espaçamento entre elementos */
+    background-color: blanchedalmond;
+}
+
+
+</style>
+<body>
+    <h1>Página de login</h1>
+    <div id="container">
+        <label for="inpUsuario">Nome de usuário:</label>
+        <input type="text" id="inpUsuario">
+        <label for="inpSenha">Senha:</label>
+        <input type="password" id="inpSenha">
+        <button onclick="efetuarLogin()">Login</button>
+    </div>
+   
+    <script src="script.js"></script>
+</body>
+</html>

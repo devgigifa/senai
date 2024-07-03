@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #470a73;
+}
+header{
+    background-color: #65179f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 25px;
+}
+footer{
+    background-color: #65179f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 200px;
+}
+section{
+    display: flex;
+    width: 10px;
+    margin: 10px;
+    color: white;
+    text-align: center;
+    gap: 100px;
+}
+#img1{
+    width: 300px;
+    margin-bottom: 10px;
+}
+#img2{
+    width: 300px;
+}
+button{
+    width: 100px;
+    height: 25px;
+}
+#inf{
+    width: 1000px;
+    display: flex;
+    height: 30px;
+    gap: 10px;
+}

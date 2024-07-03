@@ -1,112 +1,146 @@
-// Pedir 2 números aleatórios para o usuário e mostrar qual é o maior e qual é o menor. ex: 70 é maior que 23, 51 é menor que 52
+// Lista de Atividades 1 - Professor Dennis
+
+// 1) Crie uma função que receba dois números e retorne a soma.
+
+function soma(n1, n2) {
+    return n1 + n2
+}
+console.log(soma(2, 3))
 
 
-let a, b
+// 2) Crie uma função que receba um array de strings e retorne o maior string.
+
+function maiorString(array) {
+    return array.reduce((a, b) => a.length > b.length ? a : b, '');
+  }
+  
+  const array = ['Giovanna', 'Nicolas', 'Larissa', 'Ana'];
+  console.log(maiorString(array));
 
 
-a = 80
-b = 40
+// 3) Crie uma função que receba um objeto e retorne suas chaves.
 
-
-if(a > b){
-    console.log(a + ' é maior que ' + b)
-}else{
-    console.log(a + ' é menor que ' + b)
+function retornando(objeto) {
+    return Object.keys(objeto)
 }
 
-
-// Escreva um programa em javascript que exiba a tabuada de um número fornecido pelo usuário, usando o laço for
-
-
-let tabuada, result = ""
-tabuada = Number(prompt("Tabuada do número:"))
+let produtos = {produto: 'ventilador', preco: '69.99'}
+let chaves = retornando(produtos)
+console.log(chaves)
 
 
-for(let i = 1; i <= 24; i++){
-    // result += tabuada + " x " + i + " = " + (tabuada * i) + "\n"
-    result += `${tabuada} x ${i} = ${tabuada * i} \n`
+// 4) Crie uma função que converta um valor booleano para string.
+
+function boolToString(booleano) {
+    return booleano === 0 ? 'false' : 'true';
+  }
+  console.log(boolToString(0)); 
+  console.log(boolToString(1)); 
+
+// 5) Crie uma função que receba uma data e retorne o dia da semana.
+
+function diaSemana(data) {
+    const dias = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+    return dias[data.getDay()];
+  } 
+
+  const data = new Date('2023-08-30T14:30:00');
+  console.log(diaSemana(data));
+
+
+
+// Lista de Atividades 2 - Professor Dennis
+
+// 1) Crie uma função que receba um nome e salva o nome obtido num array e retorna verdadeiro ou falso.
+
+let nomes = ["Giovanna", "Nicolas", "Athos"];
+
+function recebeNome(nome) {
+  if (nome) {
+    nomes.push(nome);
+    return true;
+  } else {
+    return false;
+  }
 }
-alert(result)
+console.log(recebeNome("Nicolas")); 
+console.log(recebeNome()); 
 
+// 2) Crie uma função que ao ser chamada retorne a lista de array com os nomes.
 
-// Exiba os números pares existentes entre 1 e 201, com while
-
-
-let numero
-while(numero <= 201){
-    if(numero % 2 == 0)
-    console.log(numero)
-numero++
+function getNomes() {
+  let nomes = ['Giovanna', 'Nicolas', 'Larissa', 'Ana']
+  return nomes
 }
 
+console.log(getNomes())
 
-// Peça ao usuário que indique uma quantidade de números a serem digitados e calcule a média entre esses números. Com while
+// 3) Crie uma função que recebe um index e um novo nome e atualize o nome dentro do array.
 
+let nome = ['Giovanna', 'Nicolas', 'Larissa', 'Ana'];
 
-let qtdNums, num = 0, mediaNums = 0, controle = 0
-
-
-qtdNums = parseInt(prompt("Digite a quantidade de números que deseja realizar a média:"))
-while(controle < qtdNums){
-    num += parseInt(prompt("Digite um número:"))
-    controle++
+function atualizaNome(index, novoNome) {
+if (index >= 0 && index < nome.length) {
+  nome[index] = novoNome;
+} else {
+  console.error('Índice inválido');
 }
-mediaNums = num / qtdNums
-alert(`A média é: ${mediaNums.toFixed(1)}`)
-   
+}
 
+atualizaNome(2, 'Joana');
+console.log(nomes);
 
-// Faça um programa que crie um  vetor vazio. Esse programa deve perguntar qual opção o usuário deseja (1,2,3,4,5,0) e as opções devem executar as tarefas abaixo. Criar as mensagens e a forma que achar melhor. Vetor
-// MENU
-// 1 - cadastrar nome
-// 2 - excluir um nome
-// 3 - editar um nome
-// 4 - pesquisar se um nome está cadastrado
-// 5 - listar todos os nomes cadastrados em ordem alfabética
-// 0 - Sair do programa
+// 4) Crie uma função que ao receber um index o nome seja excluído.
 
+const nom = ["João", "Maria", "Pedro", "Ana"];
+console.log(nom);
 
-let nomes = []
-let opcao = -5
-
-
-while (opcao != 0) {
-    opcao = prompt("Escolha qual opção deseja: \n (1) cadastrar nome \n (2) excluir um nome \n (3) editar um nome \n (4) pesquisar se um nome está cadastrado \n (5) listar todos os nomes cadastrados em ordem alfabética \n (0) sair do programa")
-    switch(opcao){
-        case '1':
-            nomes.push(prompt("Cadastre um nome: "))
-            break
-        case '2':
-            nomes.pop()
-            break
-        case '4':
-            if(nomes.includes(prompt("Nome existe?"))){
-                alert("O nome está na lista!")
-            }else{
-                alert("O nome não está na lista!")
-            }
-            break
-        case '5':
-            alert(nomes.sort())
-            break
-        case 0:
-            alert("Sair")
-            break
-
-
+function excluirNome(nom, indexOuNome) {
+  if (typeof indexOuNome === 'number') {
+    if (indexOuNome < nom.length) {
+      nom.splice(indexOuNome, 1);
+    } else {
+      console.log("Índice inválido");
     }
+  } else if (typeof indexOuNome === 'string') {
+    const index = nom.indexOf(indexOuNome);
+    if (index !== -1) {
+      nom.splice(index, 1);
+    } else {
+      console.log("Nome não encontrado");
+    }
+  } else {
+    console.log("Parâmetro inválido");
+  }
+  return nom;
 }
 
+excluirNome(nom, 1);
+console.log(nom); 
 
-// media com operador ternário
-let n1, n2, n3, media, resultado
+excluirNome(nom, "Pedro");
+console.log(nom);
 
+// 5) Altere as funções acima para receber uma Object com três campos, os campos são: nome, email e senha.
 
-n1 = Number(prompt("Digite a nota 1:"))
-n2 = Number(prompt("Digite a nota 2:"))
-n3 = Number(prompt("Digite a nota 3:"))
+function adicionarUsuario(usuarios, novoUsuario) {
+  if (novoUsuario && typeof novoUsuario === 'object' && 'nome' in novoUsuario && 'email' in novoUsuario && 'senha' in novoUsuario) {
+    usuarios.push(novoUsuario);
+  } else {
+    console.log("Parâmetro inválido");
+  }
+  return usuarios;
+}
 
+function listarUsuarios(usuarios) {
+  return usuarios;
+}
 
-media = (n1 + n2 + n3) / 3
-resultado = media >= 7 ? "Aprovado" : media <= 3 ? "Reprovado" : "Recuperação"
-alert(`${resultado} - Média Final: ${media.toFixed(2)}`)
+const usuarios = [];
+
+adicionarUsuario(usuarios, { nome: "João", email: "joao@example.com", senha: "123456" });
+adicionarUsuario(usuarios, { nome: "Maria", email: "maria@example.com", senha: "abcdef" });
+adicionarUsuario(usuarios, { nome: "Pedro", email: "pedro@example.com", senha: "789012" });
+adicionarUsuario(usuarios, { nome: "Ana", email: "ana@example.com", senha: "345678" });
+
+console.log(listarUsuarios(usuarios));
